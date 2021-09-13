@@ -87,6 +87,9 @@ public class a1ReverseArray {
                 replace("]","").replace(",",""));
         sb = sb.reverse();
 
+        /**
+         * String class .split(" ") returns String[]
+         */
         int[] reverseArray =Arrays.stream(sb.toString().split(" ")).mapToInt(Integer:: parseInt).toArray();
         return  reverseArray;
     }
