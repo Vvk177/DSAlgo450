@@ -3,12 +3,16 @@ package ds.array;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * input
+ * 3 2 1 56 1000 167
+ */
 public class a2MaxAndMinArrayElements {
     public static void main(String[] args) {
         long[] inputArray=convertUserInputToArrayOfLong();
-//        Pair pair=method1FindMaxAndMin(inputArray);
+        Pair pair=method1FindMaxAndMin(inputArray);
 //        Pair pair=method2FindMinAndMax(inputArray);
-        Pair pair=method3FindMinAndMax(inputArray,inputArray.length);
+//        Pair pair=method3FindMinAndMax(inputArray,inputArray.length);
         System.out.println(pair.toString());
     }
 
@@ -57,8 +61,8 @@ public class a2MaxAndMinArrayElements {
         /**
          * convert int[] to List<Integer>
          */
-        List<Long> inputList=Arrays.stream(inputArray).boxed().collect(Collectors.toList());
-        TreeSet<Long> inputSet= new TreeSet<>(inputList);
+        TreeSet<Long> inputSet=Arrays.stream(inputArray).boxed().
+                collect(Collectors.toCollection(TreeSet:: new));
         return new Pair(inputSet.first(),inputSet.last());
 
     }
