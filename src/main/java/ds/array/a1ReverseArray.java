@@ -15,7 +15,6 @@ public class a1ReverseArray {
         String input=sc.nextLine();
 
         int[] inputArray =Arrays.stream(input.split(" ")).mapToInt(Integer:: parseInt).toArray();
-
         //        int[] reverse=reverseMethod1(inputArray);
         //        reverseMethod2(inputArray);
         reverseMethod3(inputArray);
@@ -58,9 +57,15 @@ public class a1ReverseArray {
          * List<Integer> you  = Arrays.stream( data ).boxed().collect( Collectors.toList() );
          * List<Integer> like = IntStream.of( data ).boxed().collect( Collectors.toList() );
          */
-//        Integer[] array= Arrays.stream(inputArray).boxed().toArray(Integer[]:: new);
-//        Collections.reverse(Arrays.asList(array));
-//        System.out.println(Arrays.toString(array));
+
+        /**
+         * Converting int[] -> List<Integer>
+         * so that can use Collections.reverse(List<?> list) method
+         * List<Integer> inputList= Arrays.stream(inputArray).boxed().collect(Collectors.toList());
+         *
+         * here stream boxed() method
+         * Returns a Stream consisting of the elements of this stream, each boxed to an Integer.
+         */
         List<Integer> inputList= Arrays.stream(inputArray).boxed().collect(Collectors.toList());
         Collections.reverse(inputList);
         System.out.println(Arrays.toString(inputList.stream().mapToInt(Integer :: intValue).toArray()));
